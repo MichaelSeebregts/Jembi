@@ -6,6 +6,9 @@ library(waveslim)
 library(wavethresh)
 library(wavelets)
 
+library(malariasimulation)
+library(ggplot2)
+
 dataRaw = read.csv("flattened-environment-clinical-join.csv", header = TRUE)
 
 infectedFunc = function(woreda)
@@ -130,5 +133,14 @@ lines(abargelie$Day, waveletRDTFalciparumThreshPred, col = "green")
 # corrMatrix = cor(corrDF)
 # 
 # corrplot(corrMatrix, method = "color")
+
+
+
+output = run_simulation(100)
+
+plot(output$timestep, output$n_infections)
+
+
+
 
 
